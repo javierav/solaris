@@ -148,6 +148,8 @@ GEM
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
+    huawei_solar (0.0.5)
+      rmodbus (~> 1.3.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -224,6 +226,7 @@ GEM
     reline (0.3.7)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rmodbus (1.3.3)
     rouge (4.1.2)
     rubocop (1.55.1)
       json (~> 2.3)
@@ -306,6 +309,7 @@ DEPENDENCIES
   dotenv-rails
   error_highlight
   http
+  huawei_solar
   importmap-rails
   propshaft
   puma
