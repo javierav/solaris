@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_08_05_145711) do
+ActiveRecord::Schema[7.1].define(version: 2023_08_05_174919) do
+  create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
+    t.float "solar_power", null: false
+    t.float "solar_energy", null: false
+    t.float "temperature", null: false
+    t.float "grid_power", null: false
+    t.float "grid_export", null: false
+    t.float "grid_import", null: false
+  end
+
   create_table "pvpc", primary_key: "datetime", id: :datetime, force: :cascade do |t|
     t.float "import"
     t.float "export"

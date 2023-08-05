@@ -34,6 +34,9 @@ Metrics/MethodLength:
   Exclude:
     - "**/db/migrate/**/*.rb"
 
+Minitest/MultipleAssertions:
+  Enabled: false
+
 Rails/HttpStatus:
   EnforcedStyle: numeric
 

@@ -22,6 +22,7 @@ gem "turbo-rails"
 ## LIBRARIES
 gem "bootsnap", require: false
 gem "http"
+gem "huawei_solar"
 
 group :development do
   gem "amazing_print"
