@@ -21,6 +21,8 @@ gem "turbo-rails"
 
 ## LIBRARIES
 gem "bootsnap", require: false
+gem "clockwork"
+gem "foreman"
 gem "http"
 gem "huawei_solar"
 
