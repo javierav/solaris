@@ -5,8 +5,8 @@ class Config
     ENV.fetch("SOLARIS_LOOP_INTERVAL", 30).to_i
   end
 
-  def storage_interval
-    ENV.fetch("SOLARIS_STORAGE_INTERVAL", 300).to_i
+  def archive_interval
+    ENV.fetch("SOLARIS_ARCHIVE_INTERVAL", 300).to_i
   end
 
   def esios_api_key
