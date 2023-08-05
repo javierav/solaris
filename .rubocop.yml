@@ -1,0 +1,48 @@
+require:
+  - rubocop-capybara
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rails
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  Exclude:
+    - "**/bin/**/*"
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  NewCops: enable
+  SuggestExtensions: true
+  TargetRubyVersion: 3.2.2
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+Layout/LineLength:
+  Max: 130
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/AbcSize:
+  Exclude:
+    - "**/db/migrate/**/*.rb"
+Metrics/BlockLength:
+  Exclude:
+    - "**/config/environments/*.rb"
+Metrics/MethodLength:
+  Exclude:
+    - "**/db/migrate/**/*.rb"
+
+Rails/HttpStatus:
+  EnforcedStyle: numeric
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+Style/OpenStructUse:
+  Exclude:
+    - "**/test/**/*"
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
