@@ -1,7 +1,7 @@
-class CreatePVPC < ActiveRecord::Migration[7.1]
+class CreateEnergyPrice < ActiveRecord::Migration[7.1]
   def change
     # rubocop:disable Rails/CreateTableWithTimestamps
-    create_table :pvpc, id: :datetime, primary_key: :datetime do |t|
+    create_table :energy_price, id: :datetime, primary_key: :datetime do |t|
       t.float :import
       t.float :export
     end

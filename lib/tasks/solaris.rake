@@ -1,16 +1,15 @@
 namespace :solaris do
-  desc "Populate database with PVPC data"
-  task populate_pvpc: :environment do
-    ESIOS::Import.for_today.each do |data|
-      pvpc = PVPC.find_or_initialize_by(datetime: data[:datetime])
-      pvpc.assign_attributes(import: data[:value])
-      pvpc.save
+  namespace :energy_price do
+    desc "Retrieve energy price for date"
+    task :store, [:date] => :environment do |_t, args|
+      Solaris::EnergyPrice.store(args[:date] ? Date.parse(args[:date]) : Date.current)
     end
+  end
 
-    ESIOS::Export.for_today.each do |data|
-      pvpc = PVPC.find_or_initialize_by(datetime: data[:datetime])
-      pvpc.assign_attributes(export: data[:value])
-      pvpc.save
+  namespace :archive do
+    desc "Run daily archive"
+    task :daily, [:date] => :environment do |_t, args|
+      Solaris::DailyArchive.run(args[:date] ? Date.parse(args[:date]) : Date.current)
     end
   end
 end

@@ -24,7 +24,7 @@ gem "bootsnap", require: false
 gem "clockwork"
 gem "foreman"
 gem "http"
-gem "huawei_solar"
+gem "rmodbus"
 
 group :development do
   gem "amazing_print"

@@ -12,5 +12,4 @@
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym "ESIOS"
-  inflect.acronym "PVPC"
 end

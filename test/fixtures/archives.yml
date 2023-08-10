@@ -1,0 +1,8 @@
+one:
+  created_at: 2023-03-19T00:00:00+01:00
+  solar_power: 0.0
+  solar_energy: 0.0
+  temperature: 0.0
+  grid_power: 0.0
+  grid_energy_export: 0.0
+  grid_energy_import: 0.0
