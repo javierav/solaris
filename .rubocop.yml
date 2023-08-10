@@ -11,6 +11,7 @@ inherit_mode:
 AllCops:
   Exclude:
     - "**/bin/**/*"
+    - "**/scripts/**/*"
   DisplayCopNames: true
   DisplayStyleGuide: true
   NewCops: enable

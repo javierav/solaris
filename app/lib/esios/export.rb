@@ -5,7 +5,7 @@ module ESIOS
     end
 
     def geo_id
-      Config.esios_country_geo_id
+      ENV.fetch("ESIOS_COUNTRY_GEO_ID", 3).to_i
     end
   end
 end

@@ -6,8 +6,8 @@ class CreateArchive < ActiveRecord::Migration[7.1]
       t.float :solar_energy, null: false
       t.float :temperature, null: false
       t.float :grid_power, null: false
-      t.float :grid_export, null: false
-      t.float :grid_import, null: false
+      t.float :grid_energy_export, null: false
+      t.float :grid_energy_import, null: false
     end
     # rubocop:enable Rails/CreateTableWithTimestamps
   end

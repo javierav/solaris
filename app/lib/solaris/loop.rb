@@ -10,19 +10,26 @@ module Solaris
 
     private
 
+    def archive_interval
+      ENV.fetch("SOLARIS_ARCHIVE_INTERVAL", 60).to_i
+    end
+
     def last_archive
-      Archive.order(created_at: :desc).first
+      @last_archive ||= Archive.order(created_at: :desc).first
     end
 
     def condition_for_archive
-      last_archive.nil? || last_archive.created_at < Config.archive_interval.seconds.ago
+      last_archive.nil? || last_archive.created_at < archive_interval.seconds.ago
     end
 
     def perform_archive
+      Archive.create(read_inverter_data).persisted?
+    end
+
+    def read_inverter_data
       loop do
-        break if Archive.create_from_inverter.persisted?
-      rescue Errno::ECONNRESET
-        Rails.logger.error "Connection reset, retrying..."
+        data = Solaris::Inverter.read
+        break data if data.present?
       end
     end
   end
