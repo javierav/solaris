@@ -223,6 +223,9 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails-i18n (7.0.7)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.8.1)
@@ -319,6 +322,7 @@ DEPENDENCIES
   propshaft
   puma
   rails!
+  rails-i18n
   rmodbus
   rubocop
   rubocop-capybara

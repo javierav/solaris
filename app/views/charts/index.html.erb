@@ -1,0 +1,11 @@
+<h1>Dashboard</h1>
+
+<% if @period.daily? %>
+  <%= turbo_frame_tag :solar_power_chart, src: chart_path("solar_power", @period.to_param) do %>
+    <p>Cargando las metricas solares...</p>
+  <% end %>
+<% end %>
+
+<%= turbo_frame_tag :solar_energy_chart, src: chart_path("solar_energy", @period.to_param) do %>
+  <p>Cargando las metricas solares...</p>
+<% end %>

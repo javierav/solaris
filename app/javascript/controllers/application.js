@@ -6,4 +6,8 @@ const application = Application.start()
 application.debug = false
 window.Stimulus   = application
 
+// Configure external controllers
+import Chart from "stimulus-chartjs"
+application.register("chart", Chart)
+
 export { application }

@@ -24,6 +24,7 @@ gem "bootsnap", require: false
 gem "clockwork"
 gem "foreman"
 gem "http"
+gem "rails-i18n"
 gem "rmodbus"
 
 group :development do

@@ -5,7 +5,7 @@ module Clockwork
     config[:tz] = ENV.fetch("SOLARIS_TIMEZONE", "Europe/Madrid").to_s
   end
 
-  every(ENV.fetch("SOLARIS_LOOP_INTERVAL", 30).to_i.seconds, "solaris.loop", thread: true) do
+  every(ENV.fetch("SOLARIS_LOOP_INTERVAL", 10).to_i.seconds, "solaris.loop", thread: true) do
     Solaris::Loop.run
   end
 
