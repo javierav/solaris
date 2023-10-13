@@ -4,7 +4,7 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 ## RAILS
-gem "rails", github: "rails/rails", branch: "main"
+gem "rails"
 
 ## DATABASE
 gem "sqlite3"
