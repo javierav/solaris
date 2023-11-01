@@ -1,0 +1,4 @@
+default:
+  timezone: "Europe/Madrid"
+  loop_interval: 30
+  archive_interval: 60

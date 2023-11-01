@@ -30,4 +30,8 @@ class Array
 
     to_32u_le.map { |n| to_signed32(n) }
   end
+
+  def to_enum_hash
+    to_h { |e| [e.to_s, e.to_s] }
+  end
 end
