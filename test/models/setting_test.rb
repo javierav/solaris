@@ -41,11 +41,39 @@ class SettingTest < ActiveSupport::TestCase
     assert setting.errors.added?(:archive_interval, :greater_than, count: 0, value: 0)
   end
 
+  test "should validate multiple of loop_interval" do
+    setting = Setting.new(loop_interval: 30, archive_interval: 31)
+
+    assert_not setting.save
+    assert setting.errors.added?(:archive_interval, :multiple_of, count: 30, value: 31)
+  end
+
   test "should validate presence of energy_price_at" do
     setting = Setting.new(energy_price: "esios")
 
     assert_not setting.save
     assert setting.errors.added?(:energy_price_at, :blank)
+  end
+
+  test "should validate format if energy_price_at" do
+    setting = Setting.new(energy_price: "esios", energy_price_at: "21")
+
+    assert_not setting.save
+    assert setting.errors.added?(:energy_price_at, :invalid, value: "21")
+  end
+
+  test "should validate presence of energy_price_for" do
+    setting = Setting.new(energy_price: "esios")
+
+    assert_not setting.save
+    assert setting.errors.added?(:energy_price_for, :blank)
+  end
+
+  test "should validate format if energy_price_for" do
+    setting = Setting.new(energy_price: "esios", energy_price_for: "next")
+
+    assert_not setting.save
+    assert setting.errors.added?(:energy_price_for, :inclusion, value: "next")
   end
 
   test "should validate presence of esios_api_key" do
@@ -89,5 +117,21 @@ class SettingTest < ActiveSupport::TestCase
 
   test "should return same instance" do
     assert_equal Setting.instance, Setting.instance
+  end
+
+  test "should create settings with valid values" do
+    setting = Setting.new(
+      energy_price: "esios",
+      energy_price_at: "21:00",
+      energy_price_for: "tomorrow",
+      esios_api_key: "test-key",
+      esios_zone: 8741,
+      esios_country: 3,
+      inverter: "huawei",
+      huawei_ip: "10.0.0.1",
+      huawei_port: 502
+    )
+
+    assert setting.save
   end
 end

@@ -1,10 +1,6 @@
 module Solaris
   module EnergyPrices
     class Base
-      def self.available?
-        raise NotImplementedError
-      end
-
       def initialize(date)
         @date = date
       end
