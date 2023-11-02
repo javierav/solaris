@@ -82,9 +82,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_072840) do
     t.integer "archive_interval", default: 60
     t.string "energy_price"
     t.string "energy_price_at"
+    t.string "energy_price_for"
     t.string "esios_api_key"
-    t.string "esios_zone"
-    t.string "esios_country"
+    t.integer "esios_zone"
+    t.integer "esios_country"
     t.string "inverter"
     t.string "huawei_ip"
     t.integer "huawei_port"

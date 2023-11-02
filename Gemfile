@@ -25,6 +25,8 @@ gem "clockwork"
 gem "foreman"
 gem "http"
 gem "rmodbus"
+gem "rufus-scheduler"
+gem "view_component"
 
 group :development do
   gem "amazing_print"

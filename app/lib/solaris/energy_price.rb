@@ -24,11 +24,11 @@ module Solaris
     private
 
     def candidate
-      classes.find(&:available?)
+      "Solaris::EnergyPrices::#{candidate_class}".safe_constantize
     end
 
-    def classes
-      [Solaris::EnergyPrices::ESIOS]
+    def candidate_class
+      Setting.instance.energy_price&.camelize
     end
 
     def store_import_prices
