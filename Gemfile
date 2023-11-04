@@ -21,16 +21,21 @@ gem "turbo-rails"
 
 ## LIBRARIES
 gem "bootsnap", require: false
+gem "class_variants"
 gem "clockwork"
 gem "foreman"
 gem "http"
+gem "rails-i18n"
 gem "rmodbus"
+gem "view_component"
 
 group :development do
   gem "amazing_print"
   gem "better_errors"
+  gem "binding_of_caller"
   gem "dotenv-rails"
   gem "error_highlight"
+  gem "rails_live_reload"
   gem "rubocop", require: false
   gem "rubocop-capybara", require: false
   gem "rubocop-minitest", require: false

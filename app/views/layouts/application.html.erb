@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-100">
   <head>
     <title>Solaris</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,9 +11,31 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
+  <body class="h-full">
+  <div class="min-h-full">
+    <div class="bg-gray-800 pb-32">
+      <header class="py-5">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <%= render(Navigation::Component.new) do |c| %>
+            <% c.with_item(name: t("period.now"), href: now_path, current: @period.now?) %>
+            <% c.with_item(name: t("period.day"), href: periods_path(@period.current_day, default_chart), current: @period.day?) %>
+            <% c.with_item(name: t("period.week"), href: periods_path(@period.current_week, default_chart), current: @period.week?) %>
+            <% c.with_item(name: t("period.month"), href: periods_path(@period.current_month, default_chart), current: @period.month?) %>
+            <% c.with_item(name: t("period.year"), href: periods_path(@period.current_year, default_chart), current: @period.year?) %>
+            <% c.with_item(name: t("period.all"), href: periods_path("all", default_chart), current: @period.all?) %>
+            <% c.with_item(name: t("period.custom"), href: periods_path(@period.current_custom, default_chart), current: @period.custom?) %>
+          <% end %>
+        </div>
+      </header>
+    </div>
+
+    <main class="-mt-32">
+      <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div class="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
+          <%= yield %>
+        </div>
+      </div>
     </main>
+  </div>
   </body>
 </html>

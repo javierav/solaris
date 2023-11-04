@@ -1,2 +1,21 @@
 es:
-  hello: "Hola mundo!"
+  period:
+    now: "AHORA"
+    day: "DÍA"
+    week: "SEMANA"
+    month: "MES"
+    year: "AÑO"
+    all: "TOTAL"
+    custom: "PERSONALIZADO"
+  charts:
+    solar_power: "Potencia de generación solar en W"
+    solar_energy: "Producción de energía solar en kWh"
+    energy_consumption: "Consumo de energía de la vivienda en kWh"
+    energy_distribution: "Distribución de la energía en kWh"
+    balance: "Balance de importación o exportación en kWh"
+    energy_cost: "Coste de la energía en €"
+    saving: "Ahorro en €"
+  indicators:
+    solar_energy:
+      title: "Producción solar"
+      format: "%{value} kWh"

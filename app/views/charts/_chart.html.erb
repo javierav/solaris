@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "chart", data: { turbo_action: "advance" } do %>
+  <%= render(Dropdown::Component.new(available_charts)) %>
+
+  <canvas
+    data-controller="chart"
+    data-chart-data-value="<%= @chart.data.to_json %>"
+    data-chart-options-value="<%= @chart.options.to_json %>"
+  ></canvas>
+<% end %>

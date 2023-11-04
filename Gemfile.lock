@@ -85,6 +85,8 @@ GEM
       rouge (>= 1.0.0)
     bigdecimal (3.1.4)
     bindex (0.8.1)
+    binding_of_caller (1.0.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -97,6 +99,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    class_variants (0.0.6)
     clockwork (3.0.2)
       activesupport
       tzinfo
@@ -107,6 +110,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    debug_inspector (1.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -143,6 +147,9 @@ GEM
       reline (>= 0.3.8)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
+    listen (3.8.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
@@ -156,6 +163,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -220,6 +228,14 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails-i18n (7.0.8)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
+    rails_live_reload (0.3.4)
+      listen
+      nio4r
+      railties
+      websocket-driver
     railties (7.1.1)
       actionpack (= 7.1.1)
       activesupport (= 7.1.1)
@@ -230,6 +246,9 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.0.6)
+    rb-fsevent (0.11.2)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     rdoc (6.5.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
@@ -294,6 +313,10 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.5.0)
+    view_component (3.6.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -316,8 +339,10 @@ PLATFORMS
 DEPENDENCIES
   amazing_print
   better_errors
+  binding_of_caller
   bootsnap
   capybara
+  class_variants
   clockwork
   debug
   dotenv-rails
@@ -328,6 +353,8 @@ DEPENDENCIES
   propshaft
   puma
   rails
+  rails-i18n
+  rails_live_reload
   rmodbus
   rubocop
   rubocop-capybara
@@ -339,6 +366,7 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails
   turbo-rails
+  view_component
   web-console
 
 RUBY VERSION
