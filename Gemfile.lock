@@ -115,7 +115,6 @@ GEM
       railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
-    error_highlight (0.5.1)
     erubi (1.12.0)
     ffi (1.16.3)
     ffi-compiler (1.0.1)
@@ -322,7 +321,6 @@ DEPENDENCIES
   clockwork
   debug
   dotenv-rails
-  error_highlight
   foreman
   http
   importmap-rails
