@@ -30,7 +30,6 @@ group :development do
   gem "amazing_print"
   gem "better_errors"
   gem "dotenv-rails"
-  gem "error_highlight"
   gem "rubocop", require: false
   gem "rubocop-capybara", require: false
   gem "rubocop-minitest", require: false
