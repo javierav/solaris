@@ -38,6 +38,9 @@ Metrics/MethodLength:
 Minitest/MultipleAssertions:
   Enabled: false
 
+Performance/StringIdentifierArgument:
+  Enabled: false
+
 Rails/HttpStatus:
   EnforcedStyle: numeric
 
