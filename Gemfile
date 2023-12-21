@@ -25,6 +25,7 @@ gem "clockwork"
 gem "foreman"
 gem "http"
 gem "rmodbus"
+gem "sqids"
 
 group :development do
   gem "amazing_print"

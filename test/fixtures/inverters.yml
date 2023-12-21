@@ -1,0 +1,8 @@
+house:
+  name: "Casa"
+  protocol: huawei_modbus
+  timezone: "Europe/Madrid"
+  brand: "Huawei"
+  model: "SUN2000-3.68KTL-L1"
+  serial_number: "HV0000000000"
+  firmware_version: "V200R001C00SPC130"

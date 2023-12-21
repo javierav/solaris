@@ -271,6 +271,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sqids (0.2.0)
     sqlite3 (1.6.9-aarch64-linux)
     sqlite3 (1.6.9-arm64-darwin)
     sqlite3 (1.6.9-x86_64-linux)
@@ -335,6 +336,7 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   selenium-webdriver
+  sqids
   sqlite3
   stimulus-rails
   tailwindcss-rails

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_31_072840) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_20_151918) do
   create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
     t.float "solar_power", null: false
     t.float "solar_energy", null: false
@@ -74,6 +74,37 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_072840) do
     t.float "export"
   end
 
+  create_table "inverters", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.integer "protocol_id", null: false
+    t.string "timezone", null: false
+    t.integer "loop_interval", default: 60, null: false
+    t.integer "archive_interval", default: 300, null: false
+    t.string "brand"
+    t.string "model"
+    t.string "serial_number"
+    t.string "firmware_version"
+    t.index ["protocol_id"], name: "index_inverters_on_protocol_id"
+  end
+
+  create_table "protocols", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.json "gateways", default: [], null: false
+    t.json "solar_power", default: {}, null: false
+    t.json "solar_energy", default: {}, null: false
+    t.json "grid_power", default: {}, null: false
+    t.json "grid_energy_export", default: {}, null: false
+    t.json "grid_energy_import", default: {}, null: false
+    t.json "model", default: {}, null: false
+    t.json "serial_number", default: {}, null: false
+    t.json "firmware_version", default: {}, null: false
+    t.index ["name"], name: "index_protocols_on_name", unique: true
+  end
+
   create_table "settings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -90,4 +121,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_072840) do
     t.integer "huawei_port"
   end
 
+  add_foreign_key "inverters", "protocols"
 end
