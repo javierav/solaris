@@ -20,11 +20,13 @@ gem "tailwindcss-rails"
 gem "turbo-rails"
 
 ## LIBRARIES
+gem "bindata"
 gem "bootsnap", require: false
 gem "clockwork"
+gem "concurrent-ruby"
 gem "foreman"
 gem "http"
-gem "rmodbus"
+gem "mqtt"
 gem "sqids"
 
 group :development do

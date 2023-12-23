@@ -11,5 +11,8 @@
 # end
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym "ADU"
   inflect.acronym "ESIOS"
+  inflect.acronym "MQTT"
+  inflect.acronym "TCP"
 end
