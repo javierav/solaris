@@ -3,7 +3,19 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
 # create default settings
-Setting.instance
+Setting.instance.update(
+  inverter: "huawei",
+  gateway: "modbus_mqtt",
+  gateway_modbus_mqtt_ip: "mqtt.aranda.dev",
+  gateway_modbus_mqtt_port: 8883,
+  gateway_modbus_mqtt_ssl: true,
+  gateway_modbus_mqtt_client_id: "rails",
+  gateway_modbus_mqtt_account: "rails",
+  gateway_modbus_mqtt_password: "rails",
+  gateway_modbus_mqtt_subscribe_topic: "ew11/up",
+  gateway_modbus_mqtt_publish_topic: "ew11/down",
+  gateway_modbus_mqtt_slave_id: 1
+)
 
 # huawei modbus protocol
 Protocol
