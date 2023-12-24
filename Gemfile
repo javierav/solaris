@@ -25,6 +25,7 @@ gem "clockwork"
 gem "foreman"
 gem "http"
 gem "rmodbus"
+gem "solid_queue"
 gem "sqids"
 
 group :development do

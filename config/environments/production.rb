@@ -75,4 +75,7 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  ## Active Job
+  config.active_job.queue_adapter = :solid_queue
 end
