@@ -48,4 +48,8 @@ class CountryTest < ActiveSupport::TestCase
 
     assert country.save
   end
+
+  test "associated with holidays" do
+    assert_equal 16, countries(:es).holidays.count
+  end
 end
