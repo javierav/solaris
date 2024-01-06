@@ -1,0 +1,7 @@
+spain:
+  id: 1
+  code: "ES"
+  name: "España"
+  p1_name: "Punta"
+  p2_name: "Llano"
+  p3_name: "Valle"

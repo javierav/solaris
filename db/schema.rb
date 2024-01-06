@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_24_131910) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_06_160413) do
   create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
     t.float "solar_power", null: false
     t.float "solar_energy", null: false
@@ -67,6 +67,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_24_131910) do
   create_table "archive_daily_solar_power", primary_key: "date", id: :date, force: :cascade do |t|
     t.float "max", null: false
     t.datetime "maxtime", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "code", null: false
+    t.string "name", null: false
+    t.string "p1_name", null: false
+    t.string "p2_name", null: false
+    t.string "p3_name", null: false
+    t.index ["code"], name: "index_countries_on_code", unique: true
   end
 
   create_table "energy_price", primary_key: "datetime", id: :datetime, force: :cascade do |t|
