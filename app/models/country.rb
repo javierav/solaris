@@ -1,6 +1,7 @@
 class Country < ApplicationRecord
   has_many :available_rates, dependent: :destroy
   has_many :holidays, dependent: :destroy
+  has_many :zones, dependent: :destroy
 
   validates :code, presence: true, uniqueness: true
   validates :name, presence: true
