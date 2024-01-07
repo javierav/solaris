@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_07_212136) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_07_225155) do
   create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
     t.float "solar_power", null: false
     t.float "solar_energy", null: false
