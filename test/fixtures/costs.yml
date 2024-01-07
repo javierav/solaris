@@ -1,0 +1,25 @@
+cost_1:
+  country_id: 1
+  start_at: <%= Time.zone.parse("2023-01-01 00:00:00") %>
+  transport_toll_p1: 0.004506
+  distribution_toll_p1: 0.024592
+  charges_p1: 0.043893
+  transport_toll_p2: 0.00305
+  distribution_toll_p2: 0.016744
+  charges_p2: 0.008779
+  transport_toll_p3: 0.000128
+  distribution_toll_p3: 0.000852
+  charges_p3: 0.002195
+
+cost_2:
+  country_id: 1
+  start_at: <%= Time.zone.parse("2024-01-01 00:00:00") %>
+  transport_toll_p1: 0.004528
+  distribution_toll_p1: 0.028553
+  charges_p1: 0.0
+  transport_toll_p2: 0.002589
+  distribution_toll_p2: 0.016595
+  charges_p2: 0.0
+  transport_toll_p3: 0.000075
+  distribution_toll_p3: 0.000482
+  charges_p3: 0.0

@@ -24,6 +24,7 @@ gem "bindata"
 gem "bootsnap", require: false
 gem "concurrent-ruby"
 gem "foreman"
+gem "groupdate"
 gem "http"
 gem "mqtt"
 gem "rails-settings-cached"
