@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_06_173348) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_07_162546) do
   create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
     t.float "solar_power", null: false
     t.float "solar_energy", null: false
@@ -67,6 +67,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_06_173348) do
   create_table "archive_daily_solar_power", primary_key: "date", id: :date, force: :cascade do |t|
     t.float "max", null: false
     t.datetime "maxtime", null: false
+  end
+
+  create_table "available_rates", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "country_id", null: false
+    t.string "rate"
+    t.index ["country_id", "rate"], name: "index_available_rates_on_country_id_and_rate", unique: true
+    t.index ["country_id"], name: "index_available_rates_on_country_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -235,6 +244,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_06_173348) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
+  add_foreign_key "available_rates", "countries"
   add_foreign_key "holidays", "countries"
   add_foreign_key "inverters", "protocols"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

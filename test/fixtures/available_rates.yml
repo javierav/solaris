@@ -1,0 +1,11 @@
+es_by_period:
+  country_id: 1
+  rate: "by_period"
+
+es_fixed:
+  country_id: 1
+  rate: "fixed"
+
+es_pvpc:
+  country_id: 1
+  rate: "pvpc"
