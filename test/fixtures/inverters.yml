@@ -1,8 +1,30 @@
-house:
-  name: "Casa"
-  protocol: huawei_modbus
-  timezone: "Europe/Madrid"
+DEFAULTS: &DEFAULTS
+  installation_type: "domestic"
+  protocol_id: 1
   brand: "Huawei"
   model: "SUN2000-3.68KTL-L1"
-  serial_number: "HV0000000000"
   firmware_version: "V200R001C00SPC130"
+
+house1:
+  <<: *DEFAULTS
+  name: "Casa 1"
+  zone_id: 1
+  serial_number: "HV0000000001"
+
+house2:
+  <<: *DEFAULTS
+  name: "Casa 2"
+  zone_id: 1
+  serial_number: "HV0000000002"
+
+house3:
+  <<: *DEFAULTS
+  name: "Casa 3"
+  zone_id: 1
+  serial_number: "HV0000000003"
+
+house4:
+  <<: *DEFAULTS
+  name: "Casa 4"
+  zone_id: 2
+  serial_number: "HV0000000004"
