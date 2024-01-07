@@ -52,4 +52,8 @@ class CountryTest < ActiveSupport::TestCase
   test "associated with holidays" do
     assert_equal 16, countries(:es).holidays.count
   end
+
+  test "associated with available_rates" do
+    assert_equal 3, countries(:es).available_rates.count
+  end
 end
