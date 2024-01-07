@@ -56,4 +56,8 @@ class CountryTest < ActiveSupport::TestCase
   test "associated with available_rates" do
     assert_equal 3, countries(:es).available_rates.count
   end
+
+  test "associated with zones" do
+    assert_equal 5, countries(:es).zones.count
+  end
 end

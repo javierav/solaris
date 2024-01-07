@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_07_162546) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_07_212136) do
   create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
     t.float "solar_power", null: false
     t.float "solar_energy", null: false
@@ -244,6 +244,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_162546) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
+  create_table "zones", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.integer "country_id", null: false
+    t.string "timezone", null: false
+    t.json "configuration", default: {}, null: false
+    t.index ["country_id", "name"], name: "index_zones_on_country_id_and_name", unique: true
+    t.index ["country_id"], name: "index_zones_on_country_id"
+  end
+
   add_foreign_key "available_rates", "countries"
   add_foreign_key "holidays", "countries"
   add_foreign_key "inverters", "protocols"
@@ -252,4 +263,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_162546) do
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_ready_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_scheduled_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "zones", "countries"
 end
