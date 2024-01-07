@@ -108,15 +108,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_212136) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
+    t.string "installation_type", null: false
+    t.integer "installation_power"
+    t.integer "installation_panels"
+    t.integer "installation_price"
+    t.date "installation_date"
+    t.integer "zone_id", null: false
+    t.string "latitude"
+    t.string "longitude"
     t.integer "protocol_id", null: false
-    t.string "timezone", null: false
-    t.integer "loop_interval", default: 60, null: false
-    t.integer "archive_interval", default: 300, null: false
     t.string "brand"
     t.string "model"
     t.string "serial_number"
     t.string "firmware_version"
+    t.datetime "viewed_at"
     t.index ["protocol_id"], name: "index_inverters_on_protocol_id"
+    t.index ["zone_id"], name: "index_inverters_on_zone_id"
   end
 
   create_table "protocols", force: :cascade do |t|
@@ -258,6 +265,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_212136) do
   add_foreign_key "available_rates", "countries"
   add_foreign_key "holidays", "countries"
   add_foreign_key "inverters", "protocols"
+  add_foreign_key "inverters", "zones"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
