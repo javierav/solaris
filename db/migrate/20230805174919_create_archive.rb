@@ -1,14 +1,11 @@
 class CreateArchive < ActiveRecord::Migration[7.1]
   def change
-    # rubocop:disable Rails/CreateTableWithTimestamps
     create_table :archive, id: :datetime, primary_key: :created_at do |t|
-      t.float :solar_power, null: false
-      t.float :solar_energy, null: false
-      t.float :temperature, null: false
-      t.float :grid_power, null: false
-      t.float :grid_energy_export, null: false
-      t.float :grid_energy_import, null: false
+      t.integer :solar_power, null: false
+      t.decimal :solar_energy, precision: 4, scale: 2, null: false
+      t.integer :grid_power, null: false
+      t.decimal :grid_energy_export, precision: 8, scale: 2, null: false
+      t.decimal :grid_energy_import, precision: 8, scale: 2, null: false
     end
-    # rubocop:enable Rails/CreateTableWithTimestamps
   end
 end

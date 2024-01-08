@@ -1,0 +1,17 @@
+ie_peninsula:
+  id: 1
+  zone_id: 1
+  kind: "other"
+  installation_type: "domestic"
+  start_at: <%= Time.new(2023, 1, 1) %>
+  name: "Impuesto Electricidad"
+  percentage: 0.005
+
+iva_peninsula:
+  id: 2
+  zone_id: 1
+  kind: "value_add"
+  installation_type: "domestic"
+  start_at: <%= Time.new(2023, 1, 1) %>
+  name: "IVA"
+  percentage: 0.05

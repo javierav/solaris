@@ -72,10 +72,10 @@ class ProtocolTest < ActiveSupport::TestCase
   end
 
   test "save protocol with duplicated name" do
-    protocol = Protocol.new(name: protocols(:huawei_modbus).name)
+    protocol = Protocol.new(name: Protocol.first.name)
 
     assert_not protocol.save
-    assert protocol.errors.added?(:name, :taken, value: protocols(:huawei_modbus).name)
+    assert protocol.errors.added?(:name, :taken, value: Protocol.first.name)
   end
 
   test "save protocol with all attributes" do

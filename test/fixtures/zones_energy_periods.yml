@@ -1,0 +1,15 @@
+<% (1..3).each do |zone_id| %>
+  <% (1..7).each do |energy_period| %>
+zone_<%= zone_id %>_ep_<%= energy_period %>:
+  zone_id: <%= zone_id %>
+  energy_period_id: <%= energy_period %>
+  <% end %>
+<% end %>
+
+<% (4..5).each do |zone_id| %>
+  <% (8..14).each do |energy_period| %>
+zone_<%= zone_id %>_ep_<%= energy_period %>:
+  zone_id: <%= zone_id %>
+  energy_period_id: <%= energy_period %>
+  <% end %>
+<% end %>

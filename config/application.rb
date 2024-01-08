@@ -30,6 +30,6 @@ module Solaris
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.time_zone = ENV.fetch("SOLARIS_TIMEZONE", "Europe/Madrid").to_s
+    config.time_zone = "UTC"
   end
 end
