@@ -223,6 +223,9 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    rails-settings-cached (2.9.4)
+      activerecord (>= 5.0.0)
+      railties (>= 5.0.0)
     railties (7.1.1)
       actionpack (= 7.1.1)
       activesupport (= 7.1.1)
@@ -335,6 +338,7 @@ DEPENDENCIES
   propshaft
   puma
   rails
+  rails-settings-cached
   rmodbus
   rubocop
   rubocop-capybara

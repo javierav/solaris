@@ -23,6 +23,7 @@ gem "turbo-rails"
 gem "bootsnap", require: false
 gem "foreman"
 gem "http"
+gem "rails-settings-cached"
 gem "rmodbus"
 gem "rufus-scheduler"
 gem "solid_queue"

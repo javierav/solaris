@@ -1,85 +1,53 @@
 # 2023
 
 holiday1:
-  id: 1
-  country_id: 1
   name: "Epifanía del Señor"
   date: <%= Date.new(2023, 1, 6) %>
 holiday2:
-  id: 2
-  country_id: 1
   name: "Día del Trabajo"
   date: <%= Date.new(2023, 5, 1) %>
 holiday3:
-  id: 3
-  country_id: 1
   name: "Asunción de la Virgen"
   date: <%= Date.new(2023, 8, 15) %>
 holiday4:
-  id: 4
-  country_id: 1
   name: "Fiesta Nacional de España"
   date: <%= Date.new(2023, 10, 12) %>
 holiday5:
-  id: 5
-  country_id: 1
   name: "Todos los Santos"
   date: <%= Date.new(2023, 11, 1) %>
 holiday6:
-  id: 6
-  country_id: 1
   name: "Día de la Constitución"
   date: <%= Date.new(2023, 12, 6) %>
 holiday7:
-  id: 7
-  country_id: 1
   name: "La Inmaculada Concepción"
   date: <%= Date.new(2023, 12, 8) %>
 holiday8:
-  id: 8
-  country_id: 1
   name: "Navidad"
   date: <%= Date.new(2023, 12, 25) %>
 
 # 2024
 
 holiday9:
-  id: 9
-  country_id: 1
   name: "Año Nuevo"
   date: <%= Date.new(2024, 1, 1) %>
 holiday10:
-  id: 10
-  country_id: 1
   name: "Epifanía del Señor"
   date: <%= Date.new(2024, 1, 6) %>
 holiday11:
-  id: 11
-  country_id: 1
   name: "Día del Trabajo"
   date: <%= Date.new(2024, 5, 1) %>
 holiday12:
-  id: 12
-  country_id: 1
   name: "Asunción de la Virgen"
   date: <%= Date.new(2024, 8, 15) %>
 holiday13:
-  id: 13
-  country_id: 1
   name: "Fiesta Nacional de España"
   date: <%= Date.new(2024, 10, 12) %>
 holiday14:
-  id: 14
-  country_id: 1
   name: "Todos los Santos"
   date: <%= Date.new(2024, 11, 1) %>
 holiday15:
-  id: 15
-  country_id: 1
   name: "Día de la Constitución"
   date: <%= Date.new(2024, 12, 6) %>
 holiday16:
-  id: 16
-  country_id: 1
   name: "Navidad"
   date: <%= Date.new(2024, 12, 25) %>
