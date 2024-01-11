@@ -11,7 +11,7 @@ module Solaris
     private
 
     def archive_interval
-      ENV.fetch("SOLARIS_ARCHIVE_INTERVAL", 60).to_i
+      Rails.application.config.x.intervals.archive
     end
 
     def last_archive

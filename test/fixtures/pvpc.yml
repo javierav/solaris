@@ -1,0 +1,143 @@
+pvpc0:
+  datetime: 2024-01-01T00:00:00+01:00
+  import: 0.1238
+  export: 0.0611
+  factor: 2.03
+
+pvpc1:
+  datetime: 2024-01-01T01:00:00+01:00
+  import: 0.1111
+  export: 0.0482
+  factor: 2.3
+
+pvpc2:
+  datetime: 2024-01-01T02:00:00+01:00
+  import: 0.1108
+  export: 0.0453
+  factor: 2.45
+
+pvpc3:
+  datetime: 2024-01-01T03:00:00+01:00
+  import: 0.1093
+  export: 0.0415
+  factor: 2.63
+
+pvpc4:
+  datetime: 2024-01-01T04:00:00+01:00
+  import: 0.1102
+  export: 0.0401
+  factor: 2.75
+
+pvpc5:
+  datetime: 2024-01-01T05:00:00+01:00
+  import: 0.1115
+  export: 0.04
+  factor: 2.79
+
+pvpc6:
+  datetime: 2024-01-01T06:00:00+01:00
+  import: 0.11
+  export: 0.0403
+  factor: 2.73
+
+pvpc7:
+  datetime: 2024-01-01T07:00:00+01:00
+  import: 0.1069
+  export: 0.0404
+  factor: 2.65
+
+pvpc8:
+  datetime: 2024-01-01T08:00:00+01:00
+  import: 0.1073
+  export: 0.0414
+  factor: 2.59
+
+pvpc9:
+  datetime: 2024-01-01T09:00:00+01:00
+  import: 0.1033
+  export: 0.0404
+  factor: 2.56
+
+pvpc10:
+  datetime: 2024-01-01T10:00:00+01:00
+  import: 0.0764
+  export: 0.0234
+  factor: 3.26
+
+pvpc11:
+  datetime: 2024-01-01T11:00:00+01:00
+  import: 0.0476
+  export: 0.002
+  factor: 23.8
+
+pvpc12:
+  datetime: 2024-01-01T12:00:00+01:00
+  import: 0.0464
+  export: 0.0016
+  factor: 29
+
+pvpc13:
+  datetime: 2024-01-01T13:00:00+01:00
+  import: 0.0447
+  export: 0.0005
+  factor: 89.4
+
+pvpc14:
+  datetime: 2024-01-01T14:00:00+01:00
+  import: 0.0442
+  export: 0.0002
+  factor: 99
+
+pvpc15:
+  datetime: 2024-01-01T15:00:00+01:00
+  import: 0.0513
+  export: 0.0041
+  factor: 12.51
+
+pvpc16:
+  datetime: 2024-01-01T16:00:00+01:00
+  import: 0.0683
+  export: 0.0169
+  factor: 4.04
+
+pvpc17:
+  datetime: 2024-01-01T17:00:00+01:00
+  import: 0.0886
+  export: 0.0356
+  factor: 2.49
+
+pvpc18:
+  datetime: 2024-01-01T18:00:00+01:00
+  import: 0.0962
+  export: 0.046
+  factor: 2.09
+
+pvpc19:
+  datetime: 2024-01-01T19:00:00+01:00
+  import: 0.1033
+  export: 0.0533
+  factor: 1.94
+
+pvpc20:
+  datetime: 2024-01-01T20:00:00+01:00
+  import: 0.1101
+  export: 0.0593
+  factor: 1.86
+
+pvpc21:
+  datetime: 2024-01-01T21:00:00+01:00
+  import: 0.11
+  export: 0.0584
+  factor: 1.88
+
+pvpc22:
+  datetime: 2024-01-01T22:00:00+01:00
+  import: 0.0941
+  export: 0.0459
+  factor: 2.05
+
+pvpc23:
+  datetime: 2024-01-01T23:00:00+01:00
+  import: 0.0885
+  export: 0.0405
+  factor: 2.19

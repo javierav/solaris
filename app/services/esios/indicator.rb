@@ -37,11 +37,11 @@ module ESIOS
     def parse_response(response)
       response = response.status.success? ? response.parse : {}
 
-      (response.dig("indicator", "values") || []).map do |value|
-        {
-          datetime: DateTime.parse(value["datetime"]),
-          value: (value["value"] / 1000.0).round(4)
-        }
+      (response.dig("indicator", "values") || []).to_h do |value|
+        [
+          DateTime.parse(value["datetime"]),
+          (value["value"] / 1000.0).round(4)
+        ]
       end
     end
   end

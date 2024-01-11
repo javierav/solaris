@@ -21,10 +21,10 @@ gem "turbo-rails"
 
 ## LIBRARIES
 gem "bootsnap", require: false
-gem "clockwork"
 gem "foreman"
 gem "http"
 gem "rmodbus"
+gem "rufus-scheduler"
 gem "solid_queue"
 gem "sqids"
 
