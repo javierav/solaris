@@ -23,11 +23,15 @@ module ESIOS
       HTTP
         .headers("Accept" => "application/json; application/vnd.esios-api-v2+json")
         .headers("Content-Type" => "application/json")
-        .headers("x-api-key" => ENV.fetch("ESIOS_API_KEY"))
+        .headers("x-api-key" => Rails.application.config.x.esios.api_key)
     end
 
     def base_params
       { "geo_ids[]" => geo_id }
+    end
+
+    def url
+      "https://api.esios.ree.es/indicators/#{indicator_id}"
     end
 
     def perform_request(params = {})
