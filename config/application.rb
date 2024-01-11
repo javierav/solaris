@@ -29,5 +29,9 @@ module Solaris
     # Intervals
     config.x.intervals.loop = ENV.fetch("SOLARIS_LOOP_INTERVAL", 30).to_i
     config.x.intervals.archive = ENV.fetch("SOLARIS_ARCHIVE_INTERVAL", 300).to_i
+
+    # ESIOS
+    config.x.esios.api_key = ENV.fetch("ESIOS_API_KEY", nil)
+    config.x.esios.zone = ENV.fetch("ESIOS_ZONE", 8741)
   end
 end
