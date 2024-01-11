@@ -1,6 +1,4 @@
 class Holiday < ApplicationRecord
-  belongs_to :country
-
+  validates :date, presence: true, uniqueness: true
   validates :name, presence: true
-  validates :date, presence: true, uniqueness: { scope: :country_id }
 end

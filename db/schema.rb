@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_07_225155) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
   create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
     t.float "solar_power", null: false
     t.float "solar_energy", null: false
@@ -69,72 +69,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_225155) do
     t.datetime "maxtime", null: false
   end
 
-  create_table "available_rates", force: :cascade do |t|
+  create_table "holidays", id: false, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "country_id", null: false
-    t.string "rate"
-    t.index ["country_id", "rate"], name: "index_available_rates_on_country_id_and_rate", unique: true
-    t.index ["country_id"], name: "index_available_rates_on_country_id"
-  end
-
-  create_table "countries", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "code", null: false
-    t.string "name", null: false
-    t.string "p1_name", null: false
-    t.string "p2_name", null: false
-    t.string "p3_name", null: false
-    t.index ["code"], name: "index_countries_on_code", unique: true
-  end
-
-  create_table "holidays", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "country_id", null: false
-    t.string "name", null: false
     t.date "date", null: false
-    t.index ["country_id", "date"], name: "index_holidays_on_country_id_and_date", unique: true
-    t.index ["country_id"], name: "index_holidays_on_country_id"
-  end
-
-  create_table "inverters", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name", null: false
-    t.string "installation_type", null: false
-    t.integer "installation_power"
-    t.integer "installation_panels"
-    t.integer "installation_price"
-    t.date "installation_date"
-    t.integer "zone_id", null: false
-    t.string "latitude"
-    t.string "longitude"
-    t.integer "protocol_id", null: false
-    t.string "brand"
-    t.string "model"
-    t.string "serial_number"
-    t.string "firmware_version"
-    t.datetime "viewed_at"
-    t.index ["protocol_id"], name: "index_inverters_on_protocol_id"
-    t.index ["zone_id"], name: "index_inverters_on_zone_id"
-  end
-
-  create_table "protocols", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.json "gateways", default: [], null: false
-    t.json "solar_power", default: {}, null: false
-    t.json "solar_energy", default: {}, null: false
-    t.json "grid_power", default: {}, null: false
-    t.json "grid_energy_export", default: {}, null: false
-    t.json "grid_energy_import", default: {}, null: false
-    t.json "model", default: {}, null: false
-    t.json "serial_number", default: {}, null: false
-    t.json "firmware_version", default: {}, null: false
-    t.index ["name"], name: "index_protocols_on_name", unique: true
+    t.index ["date"], name: "index_holidays_on_date", unique: true
   end
 
   create_table "pvpc", primary_key: "datetime", id: :datetime, force: :cascade do |t|
@@ -146,17 +86,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_225155) do
   create_table "settings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "timezone", default: "Europe/Madrid"
-    t.integer "loop_interval", default: 30
-    t.integer "archive_interval", default: 60
-    t.string "energy_price"
-    t.string "energy_price_at"
-    t.string "esios_api_key"
-    t.string "esios_zone"
-    t.string "esios_country"
-    t.string "inverter"
-    t.string "huawei_ip"
-    t.integer "huawei_port"
+    t.string "var", null: false
+    t.text "value"
+    t.index ["var"], name: "index_settings_on_var", unique: true
   end
 
   create_table "solid_queue_blocked_executions", force: :cascade do |t|
@@ -252,25 +184,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_225155) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
-  create_table "zones", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.integer "country_id", null: false
-    t.string "timezone", null: false
-    t.json "configuration", default: {}, null: false
-    t.index ["country_id", "name"], name: "index_zones_on_country_id_and_name", unique: true
-    t.index ["country_id"], name: "index_zones_on_country_id"
-  end
-
-  add_foreign_key "available_rates", "countries"
-  add_foreign_key "holidays", "countries"
-  add_foreign_key "inverters", "protocols"
-  add_foreign_key "inverters", "zones"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_ready_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_scheduled_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
-  add_foreign_key "zones", "countries"
 end
