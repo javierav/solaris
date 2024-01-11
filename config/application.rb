@@ -23,13 +23,11 @@ module Solaris
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
-    config.time_zone = ENV.fetch("SOLARIS_TIMEZONE", "Europe/Madrid").to_s
+    # Application Timezone
+    config.time_zone = ENV.fetch("TZ", "Europe/Madrid")
+
+    # Intervals
+    config.x.intervals.loop = ENV.fetch("SOLARIS_LOOP_INTERVAL", 30).to_i
+    config.x.intervals.archive = ENV.fetch("SOLARIS_ARCHIVE_INTERVAL", 300).to_i
   end
 end

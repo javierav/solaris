@@ -89,11 +89,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_225155) do
     t.index ["code"], name: "index_countries_on_code", unique: true
   end
 
-  create_table "energy_price", primary_key: "datetime", id: :datetime, force: :cascade do |t|
-    t.float "import"
-    t.float "export"
-  end
-
   create_table "holidays", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -140,6 +135,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_07_225155) do
     t.json "serial_number", default: {}, null: false
     t.json "firmware_version", default: {}, null: false
     t.index ["name"], name: "index_protocols_on_name", unique: true
+  end
+
+  create_table "pvpc", primary_key: "datetime", id: :datetime, force: :cascade do |t|
+    t.decimal "import", precision: 8, scale: 6, null: false
+    t.decimal "export", precision: 8, scale: 6, null: false
+    t.decimal "factor", precision: 4, scale: 2, null: false
   end
 
   create_table "settings", force: :cascade do |t|
