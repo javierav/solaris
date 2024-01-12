@@ -1,20 +1,20 @@
 module ESIOS
   class Indicator
-    include MissingSingleton
+    def self.for_today
+      for_date(Date.current)
+    end
 
-    def for_today
-      perform_request
+    def self.for_date(date)
+      new.for_date(date.is_a?(Range) ? date : [date])
     end
 
     def for_date(date)
-      if date.is_a?(Range)
-        perform_request(
+      perform_request(
+        {
           "start_date" => date.first.beginning_of_day.iso8601,
           "end_date" => date.last.end_of_day.iso8601
-        )
-      else
-        perform_request("datetime" => date.iso8601)
-      end
+        }
+      )
     end
 
     private
