@@ -12,60 +12,66 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
   create_table "archive", primary_key: "datetime", id: { type: :datetime, precision: 0 }, force: :cascade do |t|
-    t.float "solar_power", null: false
-    t.float "solar_energy", null: false
-    t.float "grid_power", null: false
-    t.float "grid_energy_export", null: false
-    t.float "grid_energy_import", null: false
+    t.integer "solar_power", null: false
+    t.decimal "solar_energy", precision: 4, scale: 2, null: false
+    t.integer "grid_power", null: false
+    t.decimal "grid_energy_export", precision: 8, scale: 2, null: false
+    t.decimal "grid_energy_import", precision: 8, scale: 2, null: false
   end
 
-  create_table "archive_daily_energy_price_export", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+  create_table "daily_energy_price_export", primary_key: "date", id: :date, force: :cascade do |t|
+    t.decimal "max", precision: 8, scale: 6, null: false
     t.datetime "maxtime", null: false
-    t.float "min", null: false
+    t.decimal "min", precision: 8, scale: 6, null: false
     t.datetime "mintime", null: false
-    t.float "avg", null: false
+    t.decimal "avg", precision: 8, scale: 6, null: false
   end
 
-  create_table "archive_daily_energy_price_import", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+  create_table "daily_energy_price_import", primary_key: "date", id: :date, force: :cascade do |t|
+    t.decimal "max", precision: 8, scale: 6, null: false
     t.datetime "maxtime", null: false
-    t.float "min", null: false
+    t.decimal "min", precision: 8, scale: 6, null: false
     t.datetime "mintime", null: false
-    t.float "avg", null: false
+    t.decimal "avg", precision: 8, scale: 6, null: false
   end
 
-  create_table "archive_daily_grid_energy_export", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+  create_table "daily_grid_energy_export", primary_key: "date", id: :date, force: :cascade do |t|
+    t.decimal "max", precision: 8, scale: 2, null: false
     t.datetime "maxtime", null: false
-    t.float "sum", null: false
+    t.decimal "sum", precision: 8, scale: 2, null: false
   end
 
-  create_table "archive_daily_grid_energy_import", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+  create_table "daily_grid_energy_import", primary_key: "date", id: :date, force: :cascade do |t|
+    t.decimal "max", precision: 8, scale: 2, null: false
     t.datetime "maxtime", null: false
-    t.float "sum", null: false
+    t.decimal "sum", precision: 8, scale: 2, null: false
   end
 
-  create_table "archive_daily_grid_power_export", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
-    t.datetime "maxtime"
-  end
-
-  create_table "archive_daily_grid_power_import", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
-    t.datetime "maxtime"
-  end
-
-  create_table "archive_daily_solar_energy", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+  create_table "daily_grid_power_export", primary_key: "date", id: :date, force: :cascade do |t|
+    t.integer "max", null: false
     t.datetime "maxtime", null: false
-    t.float "sum", null: false
   end
 
-  create_table "archive_daily_solar_power", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+  create_table "daily_grid_power_import", primary_key: "date", id: :date, force: :cascade do |t|
+    t.integer "max", null: false
     t.datetime "maxtime", null: false
+  end
+
+  create_table "daily_solar_energy", primary_key: "date", id: :date, force: :cascade do |t|
+    t.decimal "max", precision: 4, scale: 2, null: false
+    t.datetime "maxtime", null: false
+    t.decimal "sum", precision: 8, scale: 2, null: false
+  end
+
+  create_table "daily_solar_power", primary_key: "date", id: :date, force: :cascade do |t|
+    t.integer "max", null: false
+    t.datetime "maxtime", null: false
+  end
+
+  create_table "energy_prices", primary_key: "datetime", id: { type: :datetime, precision: 0 }, force: :cascade do |t|
+    t.decimal "import", precision: 8, scale: 6, null: false
+    t.decimal "export", precision: 8, scale: 6, null: false
+    t.decimal "factor", precision: 4, scale: 2, null: false
   end
 
   create_table "holidays", id: false, force: :cascade do |t|
@@ -74,12 +80,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
     t.date "date", null: false
     t.string "name", null: false
     t.index ["date"], name: "index_holidays_on_date", unique: true
-  end
-
-  create_table "pvpc", primary_key: "datetime", id: { type: :datetime, precision: 0 }, force: :cascade do |t|
-    t.decimal "import", precision: 8, scale: 6, null: false
-    t.decimal "export", precision: 8, scale: 6, null: false
-    t.decimal "factor", precision: 4, scale: 2, null: false
   end
 
   create_table "settings", force: :cascade do |t|

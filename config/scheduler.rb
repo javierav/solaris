@@ -6,13 +6,13 @@ scheduler.every loop_interval, name: "solaris.loop" do
 end
 
 if Rails.configuration.x.esios.api_key.present?
-  scheduler.cron "0 21 * * * Europe/Madrid", name: "solaris.energy_price" do
-    StorePVPC.run(Date.tomorrow)
+  scheduler.cron "0 21 * * * Europe/Madrid", name: "solaris.energy_prices.pvpc" do
+    EnergyPrices::PVPC.store(Date.current.tomorrow)
   end
 end
 
-scheduler.cron "1 0 * * * #{Rails.application.config.time_zone}", name: "solaris.archive.daily" do
-  Solaris::DailyArchive.run
+scheduler.cron "1 0 * * * #{Rails.application.config.time_zone}", name: "solaris.aggregations.daily" do
+  DailyAggregations.run
 end
 
 scheduler.join
