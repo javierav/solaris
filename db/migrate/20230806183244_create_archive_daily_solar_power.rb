@@ -4,6 +4,5 @@ class CreateArchiveDailySolarPower < ActiveRecord::Migration[7.1]
       t.float :max, null: false
       t.datetime :maxtime, null: false
     end
-    # rubocop:enable Rails/CreateTableWithTimestamps
   end
 end

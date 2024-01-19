@@ -7,6 +7,5 @@ class CreateArchiveDailyEnergyPriceImport < ActiveRecord::Migration[7.1]
       t.datetime :mintime, null: false
       t.float :avg, null: false
     end
-    # rubocop:enable Rails/CreateTableWithTimestamps
   end
 end

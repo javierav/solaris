@@ -25,6 +25,9 @@ Layout/LineLength:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
+Lint/MissingSuper:
+  Enabled: false
+
 Metrics/AbcSize:
   Exclude:
     - "**/db/migrate/**/*.rb"

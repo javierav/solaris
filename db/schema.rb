@@ -11,10 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
-  create_table "archive", primary_key: "created_at", id: :datetime, force: :cascade do |t|
+  create_table "archive", primary_key: "datetime", id: { type: :datetime, precision: 0 }, force: :cascade do |t|
     t.float "solar_power", null: false
     t.float "solar_energy", null: false
-    t.float "temperature", null: false
     t.float "grid_power", null: false
     t.float "grid_energy_export", null: false
     t.float "grid_energy_import", null: false
@@ -77,7 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
     t.index ["date"], name: "index_holidays_on_date", unique: true
   end
 
-  create_table "pvpc", primary_key: "datetime", id: :datetime, force: :cascade do |t|
+  create_table "pvpc", primary_key: "datetime", id: { type: :datetime, precision: 0 }, force: :cascade do |t|
     t.decimal "import", precision: 8, scale: 6, null: false
     t.decimal "export", precision: 8, scale: 6, null: false
     t.decimal "factor", precision: 4, scale: 2, null: false
