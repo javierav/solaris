@@ -1,0 +1,114 @@
+_fixture:
+  ignore:
+    - working_day
+    - weekend_holiday
+
+working_day: &working_day
+  monday: true
+  tuesday: true
+  wednesday: true
+  thursday: true
+  friday: true
+
+weekend_holiday: &weekend_holiday
+  saturday: true
+  sunday: true
+  holiday: true
+
+energy_period_pcb_1:
+  <<: *working_day
+  id: 1
+  start_hour: 0
+  end_hour: 7
+  name: "p3"
+
+energy_period_pcb_2:
+  <<: *working_day
+  id: 2
+  start_hour: 8
+  end_hour: 9
+  name: "p2"
+
+energy_period_pcb_3:
+  <<: *working_day
+  id: 3
+  start_hour: 10
+  end_hour: 13
+  name: "p1"
+
+energy_period_pcb_4:
+  <<: *working_day
+  id: 4
+  start_hour: 14
+  end_hour: 17
+  name: "p2"
+
+energy_period_pcb_5:
+  <<: *working_day
+  id: 5
+  start_hour: 18
+  end_hour: 21
+  name: "p1"
+
+energy_period_pcb_6:
+  <<: *working_day
+  id: 6
+  start_hour: 22
+  end_hour: 23
+  name: "p2"
+
+energy_period_pcb_7:
+  <<: *weekend_holiday
+  id: 7
+  start_hour: 0
+  end_hour: 23
+  name: "p3"
+
+energy_period_cm_1:
+  <<: *working_day
+  id: 8
+  start_hour: 0
+  end_hour: 7
+  name: "p3"
+
+energy_period_cm_2:
+  <<: *working_day
+  id: 9
+  start_hour: 8
+  end_hour: 10
+  name: "p2"
+
+energy_period_cm_3:
+  <<: *working_day
+  id: 10
+  start_hour: 11
+  end_hour: 14
+  name: "p1"
+
+energy_period_cm_4:
+  <<: *working_day
+  id: 11
+  start_hour: 15
+  end_hour: 18
+  name: "p2"
+
+energy_period_cm_5:
+  <<: *working_day
+  id: 12
+  start_hour: 19
+  end_hour: 22
+  name: "p1"
+
+energy_period_cm_6:
+  <<: *working_day
+  id: 13
+  start_hour: 23
+  end_hour: 23
+  name: "p2"
+
+energy_period_cm_7:
+  <<: *weekend_holiday
+  id: 14
+  start_hour: 0
+  end_hour: 23
+  name: "p3"

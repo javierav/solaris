@@ -12,60 +12,113 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
   create_table "archive", primary_key: "datetime", id: { type: :datetime, precision: 0 }, force: :cascade do |t|
-    t.float "solar_power", null: false
-    t.float "solar_energy", null: false
-    t.float "grid_power", null: false
-    t.float "grid_energy_export", null: false
-    t.float "grid_energy_import", null: false
-  end
-
-  create_table "archive_daily_energy_price_export", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
-    t.datetime "maxtime", null: false
-    t.float "min", null: false
-    t.datetime "mintime", null: false
-    t.float "avg", null: false
-  end
-
-  create_table "archive_daily_energy_price_import", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
-    t.datetime "maxtime", null: false
-    t.float "min", null: false
-    t.datetime "mintime", null: false
-    t.float "avg", null: false
+    t.integer "solar_power", null: false
+    t.decimal "solar_energy", precision: 4, scale: 2, null: false
+    t.integer "grid_power", null: false
+    t.decimal "grid_energy_export", precision: 8, scale: 2, null: false
+    t.decimal "grid_energy_import", precision: 8, scale: 2, null: false
   end
 
   create_table "archive_daily_grid_energy_export", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+    t.decimal "max", precision: 8, scale: 2, null: false
     t.datetime "maxtime", null: false
-    t.float "sum", null: false
+    t.decimal "sum", precision: 8, scale: 2, null: false
   end
 
   create_table "archive_daily_grid_energy_import", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+    t.decimal "max", precision: 8, scale: 2, null: false
     t.datetime "maxtime", null: false
-    t.float "sum", null: false
+    t.decimal "sum", precision: 8, scale: 2, null: false
   end
 
   create_table "archive_daily_grid_power_export", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
-    t.datetime "maxtime"
+    t.integer "max", null: false
+    t.datetime "maxtime", null: false
   end
 
   create_table "archive_daily_grid_power_import", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
-    t.datetime "maxtime"
+    t.integer "max", null: false
+    t.datetime "maxtime", null: false
   end
 
   create_table "archive_daily_solar_energy", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+    t.decimal "max", precision: 4, scale: 2, null: false
     t.datetime "maxtime", null: false
-    t.float "sum", null: false
+    t.decimal "sum", precision: 8, scale: 2, null: false
   end
 
   create_table "archive_daily_solar_power", primary_key: "date", id: :date, force: :cascade do |t|
-    t.float "max", null: false
+    t.integer "max", null: false
     t.datetime "maxtime", null: false
+  end
+
+  create_table "costs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "country_id", null: false
+    t.datetime "start_at", null: false
+    t.decimal "transport_toll_p1", precision: 8, scale: 6, null: false
+    t.decimal "distribution_toll_p1", precision: 8, scale: 6, null: false
+    t.decimal "charges_p1", precision: 8, scale: 6, null: false
+    t.decimal "transport_toll_p2", precision: 8, scale: 6, null: false
+    t.decimal "distribution_toll_p2", precision: 8, scale: 6, null: false
+    t.decimal "charges_p2", precision: 8, scale: 6, null: false
+    t.decimal "transport_toll_p3", precision: 8, scale: 6, null: false
+    t.decimal "distribution_toll_p3", precision: 8, scale: 6, null: false
+    t.decimal "charges_p3", precision: 8, scale: 6, null: false
+    t.index ["country_id"], name: "index_costs_on_country_id"
+  end
+
+  create_table "daily_energy_export_prices", id: false, force: :cascade do |t|
+    t.string "type", null: false
+    t.integer "zone_id", null: false
+    t.date "date", null: false
+    t.decimal "max", precision: 8, scale: 6, null: false
+    t.datetime "maxtime", null: false
+    t.decimal "min", precision: 8, scale: 6, null: false
+    t.datetime "mintime", null: false
+    t.decimal "avg", precision: 8, scale: 6, null: false
+    t.index ["type", "zone_id", "date"], name: "index_daily_energy_export_prices_on_type_and_zone_id_and_date", unique: true
+    t.index ["zone_id"], name: "index_daily_energy_export_prices_on_zone_id"
+  end
+
+  create_table "daily_energy_import_prices", id: false, force: :cascade do |t|
+    t.string "type", null: false
+    t.integer "zone_id", null: false
+    t.date "date", null: false
+    t.decimal "max", precision: 8, scale: 6, null: false
+    t.datetime "maxtime", null: false
+    t.decimal "min", precision: 8, scale: 6, null: false
+    t.datetime "mintime", null: false
+    t.decimal "avg", precision: 8, scale: 6, null: false
+    t.index ["type", "zone_id", "date"], name: "index_daily_energy_import_prices_on_type_and_zone_id_and_date", unique: true
+    t.index ["zone_id"], name: "index_daily_energy_import_prices_on_zone_id"
+  end
+
+  create_table "energy_periods", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "monday", default: false, null: false
+    t.boolean "tuesday", default: false, null: false
+    t.boolean "wednesday", default: false, null: false
+    t.boolean "thursday", default: false, null: false
+    t.boolean "friday", default: false, null: false
+    t.boolean "saturday", default: false, null: false
+    t.boolean "sunday", default: false, null: false
+    t.boolean "holiday", default: false, null: false
+    t.integer "start_hour", null: false
+    t.integer "end_hour", null: false
+    t.string "name", null: false
+  end
+
+  create_table "energy_prices", id: false, force: :cascade do |t|
+    t.string "type", null: false
+    t.integer "zone_id", null: false
+    t.datetime "datetime", null: false
+    t.decimal "import", precision: 8, scale: 6, null: false
+    t.decimal "export", precision: 8, scale: 6, null: false
+    t.index ["type", "zone_id", "datetime"], name: "index_energy_prices_on_type_and_zone_id_and_datetime", unique: true
+    t.index ["zone_id"], name: "index_energy_prices_on_zone_id"
   end
 
   create_table "holidays", id: false, force: :cascade do |t|
@@ -80,6 +133,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
     t.decimal "import", precision: 8, scale: 6, null: false
     t.decimal "export", precision: 8, scale: 6, null: false
     t.decimal "factor", precision: 4, scale: 2, null: false
+  end
+
+  create_table "rates", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "inverter_id", null: false
+    t.string "type", null: false
+    t.datetime "start_at", null: false
+    t.decimal "p1", precision: 8, scale: 6
+    t.decimal "p2", precision: 8, scale: 6
+    t.decimal "p3", precision: 8, scale: 6
+    t.index ["inverter_id", "start_at"], name: "index_rates_on_inverter_id_and_start_at", unique: true
+    t.index ["inverter_id"], name: "index_rates_on_inverter_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -183,9 +249,37 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
+  create_table "taxes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "zone_id", null: false
+    t.string "kind", null: false
+    t.string "installation_type", null: false
+    t.datetime "start_at", null: false
+    t.string "name", null: false
+    t.decimal "percentage", precision: 12, scale: 10, null: false
+    t.index ["zone_id"], name: "index_taxes_on_zone_id"
+  end
+
+  create_table "zones_energy_periods", id: false, force: :cascade do |t|
+    t.integer "zone_id", null: false
+    t.integer "energy_period_id", null: false
+    t.index ["energy_period_id", "zone_id"], name: "index_zones_energy_periods_on_energy_period_id_and_zone_id", unique: true
+    t.index ["energy_period_id"], name: "index_zones_energy_periods_on_energy_period_id"
+    t.index ["zone_id"], name: "index_zones_energy_periods_on_zone_id"
+  end
+
+  add_foreign_key "costs", "countries"
+  add_foreign_key "daily_energy_export_prices", "zones"
+  add_foreign_key "daily_energy_import_prices", "zones"
+  add_foreign_key "energy_prices", "zones"
+  add_foreign_key "rates", "inverters"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_ready_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_scheduled_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "taxes", "zones"
+  add_foreign_key "zones_energy_periods", "energy_periods"
+  add_foreign_key "zones_energy_periods", "zones"
 end

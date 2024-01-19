@@ -35,7 +35,7 @@ module ESIOS
     end
 
     def perform_request(params = {})
-      parse_response(base_request.get(url, params: base_params.merge(params)))
+      parse_response(base_request.get(url, params: params.compact))
     end
 
     def parse_response(response)
