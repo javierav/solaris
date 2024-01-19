@@ -11,6 +11,5 @@ class Setting < RailsSettings::Base
   field :inverter_brand, type: :string
   field :inverter_model, type: :string
   field :inverter_serial_number, type: :string
-  field :inverter_firmware_version, type: :string
   field :viewed_at, type: :datetime
 end

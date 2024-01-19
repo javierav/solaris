@@ -20,11 +20,13 @@ gem "tailwindcss-rails"
 gem "turbo-rails"
 
 ## LIBRARIES
+gem "bindata"
 gem "bootsnap", require: false
+gem "concurrent-ruby"
 gem "foreman"
 gem "http"
+gem "mqtt"
 gem "rails-settings-cached"
-gem "rmodbus"
 gem "rufus-scheduler"
 gem "solid_queue"
 gem "sqids"

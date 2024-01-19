@@ -1,11 +1,11 @@
 scheduler = Rufus::Scheduler.new
-loop_interval = Rails.application.config.x.intervals.loop
+loop_interval = Rails.configuration.x.intervals.loop
 
-scheduler.every loop_interval, name: "solaris.loop", first_at: Time.current.beginning_of_minute + 1.minute do
-  Solaris::Loop.run
+scheduler.every loop_interval, name: "solaris.loop" do
+  Loop.run
 end
 
-if Rails.application.config.x.esios.api_key.present?
+if Rails.configuration.x.esios.api_key.present?
   scheduler.cron "0 21 * * * Europe/Madrid", name: "solaris.energy_price" do
     StorePVPC.run(Date.tomorrow)
   end

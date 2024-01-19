@@ -33,5 +33,23 @@ module Solaris
     # ESIOS
     config.x.esios.api_key = ENV.fetch("ESIOS_API_KEY", nil)
     config.x.esios.zone = ENV.fetch("ESIOS_ZONE", 8741)
+
+    # Protocol
+    config.x.protocol = ENV.fetch("SOLARIS_PROTOCOL", nil)
+
+    # Gateway
+    config.x.gateway = ENV.fetch("SOLARIS_GATEWAY", nil)
+
+    # Gateway Modbus MQTT
+    config.x.gateways = Rails::Application::Configuration::Custom.new
+    config.x.gateways.modbus_mqtt.host = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_HOST", nil)
+    config.x.gateways.modbus_mqtt.port = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_PORT", nil)
+    config.x.gateways.modbus_mqtt.ssl = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_SSL", nil)
+    config.x.gateways.modbus_mqtt.slave_id = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_SLAVE_ID", nil)
+    config.x.gateways.modbus_mqtt.client_id = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_CLIENT_ID", nil)
+    config.x.gateways.modbus_mqtt.account = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_ACCOUNT", nil)
+    config.x.gateways.modbus_mqtt.password = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_PASSWORD", nil)
+    config.x.gateways.modbus_mqtt.subscribe_topic = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_SUBSCRIBE_TOPIC", nil)
+    config.x.gateways.modbus_mqtt.publish_topic = ENV.fetch("SOLARIS_GATEWAY_MODBUS_MQTT_PUBLISH_TOPIC", nil)
   end
 end

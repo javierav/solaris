@@ -5,7 +5,7 @@ module ESIOS
     end
 
     def geo_id
-      Rails.application.config.x.esios.zone
+      Rails.configuration.x.esios.zone
     end
   end
 end

@@ -23,7 +23,7 @@ module ESIOS
       HTTP
         .headers("Accept" => "application/json; application/vnd.esios-api-v2+json")
         .headers("Content-Type" => "application/json")
-        .headers("x-api-key" => Rails.application.config.x.esios.api_key)
+        .headers("x-api-key" => Rails.configuration.x.esios.api_key)
     end
 
     def base_params

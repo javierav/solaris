@@ -4,6 +4,5 @@ class CreateArchiveDailyGridPowerImport < ActiveRecord::Migration[7.1]
       t.float :max, null: false
       t.datetime :maxtime
     end
-    # rubocop:enable Rails/CreateTableWithTimestamps
   end
 end
