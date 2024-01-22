@@ -26,13 +26,15 @@ module Solaris
     # Application Timezone
     config.time_zone = ENV.fetch("TZ", "Europe/Madrid")
 
+    # Application Region
+    config.x.region = ENV.fetch("SOLARIS_REGION", "1").to_i
+
     # Intervals
-    config.x.intervals.loop = ENV.fetch("SOLARIS_LOOP_INTERVAL", 30).to_i
-    config.x.intervals.archive = ENV.fetch("SOLARIS_ARCHIVE_INTERVAL", 300).to_i
+    config.x.intervals.loop = ENV.fetch("SOLARIS_LOOP_INTERVAL", "30").to_i
+    config.x.intervals.archive = ENV.fetch("SOLARIS_ARCHIVE_INTERVAL", "300").to_i
 
     # ESIOS
     config.x.esios.api_key = ENV.fetch("ESIOS_API_KEY", nil)
-    config.x.esios.zone = ENV.fetch("ESIOS_ZONE", 8741)
 
     # Protocol
     config.x.protocol = ENV.fetch("SOLARIS_PROTOCOL", nil)

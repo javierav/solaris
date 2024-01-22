@@ -1,2 +1,8 @@
 es:
-  hello: "Hola mundo!"
+  regions:
+    pen: "Península"
+    can: "Islas Canarias"
+    bal: "Islas Baleares"
+    ceu: "Ceuta"
+    mel: "Melilla"
+
