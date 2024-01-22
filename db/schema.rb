@@ -68,14 +68,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_182558) do
     t.datetime "maxtime", null: false
   end
 
-  create_table "holidays", id: false, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "date", null: false
-    t.string "name", null: false
-    t.index ["date"], name: "index_holidays_on_date", unique: true
-  end
-
   create_table "pvpc", primary_key: "datetime", id: { type: :datetime, precision: 0 }, force: :cascade do |t|
     t.decimal "import", precision: 8, scale: 6, null: false
     t.decimal "export", precision: 8, scale: 6, null: false
