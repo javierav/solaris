@@ -2,7 +2,7 @@ class Region
   attr_reader :id
 
   def self.current
-    new(Rails.configuration.x.region)
+    @current ||= new(Rails.configuration.x.region)
   end
 
   def initialize(id)
