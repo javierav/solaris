@@ -1,6 +1,10 @@
 require "test_helper"
 
 class RegionTest < ActiveSupport::TestCase
+  teardown do
+    Region.instance_variable_set(:@current, nil)
+  end
+
   test "with default region" do
     assert_equal 1, Region.current.id
     assert_equal "pen", Region.current.key

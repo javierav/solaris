@@ -3,6 +3,10 @@ class Holiday
     @all ||= new.all
   end
 
+  def self.include?(object)
+    all.include?(object.respond_to?(:to_date) ? object.to_date : object)
+  end
+
   def all
     (year2023 + year2024).map { |date| Date.parse(date) }
   end

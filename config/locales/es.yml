@@ -1,4 +1,8 @@
 es:
+  energy_periods:
+    peak: "Punta"
+    standard: "Llano"
+    off_peak: "Valle"
   regions:
     pen: "Península"
     can: "Islas Canarias"
