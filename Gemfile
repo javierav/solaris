@@ -20,6 +20,7 @@ gem "tailwindcss-rails"
 gem "turbo-rails"
 
 ## LIBRARIES
+gem "active_median"
 gem "bindata"
 gem "bootsnap", require: false
 gem "concurrent-ruby"
