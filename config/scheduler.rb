@@ -1,8 +1,14 @@
 scheduler = Rufus::Scheduler.new
 loop_interval = Rails.configuration.x.intervals.loop
+archive_interval = Rails.configuration.x.intervals.archive
+store = MetricStore.new
 
-scheduler.every loop_interval, name: "solaris.loop" do
-  Loop.run
+scheduler.every loop_interval, name: "solaris.loop.main" do
+  Loops::Main.run(store)
+end
+
+scheduler.every archive_interval, name: "solaris.loop.archive" do
+  Loops::Archive.run(store)
 end
 
 if Rails.configuration.x.esios.api_key.present?

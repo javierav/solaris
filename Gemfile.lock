@@ -49,6 +49,8 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
+    active_median (0.4.0)
+      activesupport (>= 6.1)
     activejob (7.1.1)
       activesupport (= 7.1.1)
       globalid (>= 0.3.6)
@@ -327,6 +329,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  active_median
   amazing_print
   better_errors
   bindata
