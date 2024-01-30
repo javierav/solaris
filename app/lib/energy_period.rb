@@ -1,4 +1,6 @@
 class EnergyPeriod
+  PERIODS = %i[peak standard off_peak].freeze
+
   def self.for(time)
     new(time).for
   end

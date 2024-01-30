@@ -56,6 +56,9 @@ Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/HashTransformValues:
+  Exclude:
+    - "**/app/lib/regulated_costs.rb"
 Style/OpenStructUse:
   Exclude:
     - "**/test/**/*"
